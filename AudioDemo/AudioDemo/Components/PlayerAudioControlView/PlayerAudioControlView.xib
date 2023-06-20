@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerAudioControlView" customModule="AudioDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="audioControlView" destination="1Tm-wk-fLF" id="BnQ-c3-ZZO"/>
+                <outlet property="audioImageView" destination="Zhh-UQ-219" id="aJo-zF-qJ3"/>
+                <outlet property="progressView" destination="tKK-ON-nOg" id="8eZ-md-Uz4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="386" height="647"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IWq-MV-ykU">
+                    <rect key="frame" x="0.0" y="0.0" width="386" height="594"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zhh-UQ-219">
+                            <rect key="frame" x="0.0" y="0.0" width="386" height="386"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Zhh-UQ-219" secondAttribute="height" id="YUL-vP-owa"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="THw-KG-Pbg">
+                            <rect key="frame" x="0.0" y="396" width="386" height="198"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="403" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="tKK-ON-nOg" customClass="MusicProgressView" customModule="AudioDemo" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="386" height="128"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoV-Uk-pqn">
+                                    <rect key="frame" x="0.0" y="158" width="386" height="40"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tm-wk-fLF" customClass="AudioControlView" customModule="AudioDemo" customModuleProvider="target">
+                                            <rect key="frame" x="38.5" y="0.0" width="309" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="1Tm-wk-fLF" secondAttribute="bottom" id="8VA-zy-EUD"/>
+                                        <constraint firstAttribute="height" constant="40" id="Ozx-Wk-qV5"/>
+                                        <constraint firstItem="1Tm-wk-fLF" firstAttribute="centerX" secondItem="EoV-Uk-pqn" secondAttribute="centerX" id="cbx-Nr-im0"/>
+                                        <constraint firstItem="1Tm-wk-fLF" firstAttribute="width" secondItem="EoV-Uk-pqn" secondAttribute="width" multiplier="0.8" id="oLa-sx-Dnb"/>
+                                        <constraint firstItem="1Tm-wk-fLF" firstAttribute="top" secondItem="EoV-Uk-pqn" secondAttribute="top" id="xdc-Mi-TdU"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="IWq-MV-ykU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4OU-Ob-Ydj"/>
+                <constraint firstItem="IWq-MV-ykU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fXS-Nn-pYd"/>
+                <constraint firstAttribute="trailing" secondItem="IWq-MV-ykU" secondAttribute="trailing" id="kp9-n4-0fh"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IWq-MV-ykU" secondAttribute="bottom" id="sV0-Z6-jEP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="117.39130434782609" y="-30.46875"/>
+        </view>
+    </objects>
+</document>
