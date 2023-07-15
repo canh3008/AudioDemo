@@ -9,7 +9,7 @@ import UIKit
 
 protocol PlayerAudioControlViewDataSource: AnyObject {
     func timeControl(view: PlayerAudioControlView) -> TimeControl
-    func totalSecondsAudio(view: PlayerAudioControlView) -> Int
+    func nameAudio(view: PlayerAudioControlView) -> String
 }
 
 extension PlayerAudioControlViewDataSource {
@@ -18,21 +18,16 @@ extension PlayerAudioControlViewDataSource {
     }
 }
 
-protocol PlayerAudioControlViewDelegate: AnyObject {
-    func didTapPlay(view: PlayerAudioControlView)
-    func didTapPause(view: PlayerAudioControlView)
-    func didTapForward(view: PlayerAudioControlView, seconds: Int)
-    func didTapBackward(view: PlayerAudioControlView, seconds: Int)
-}
-
 class PlayerAudioControlView: BaseView {
 
     @IBOutlet private weak var audioControlView: AudioControlView!
     @IBOutlet private weak var progressView: MusicProgressView!
     @IBOutlet private weak var audioImageView: UIImageView!
 
+    private var viewModel = PlayerAudioControlViewModel()
+
     private var timeControl: TimeControl?
-    var currentSecond: Int = 0 {
+    private var currentSecond: Int = 0 {
         didSet {
 
             self.progressView.elapsedSecondTimes = currentSecond
@@ -45,10 +40,9 @@ class PlayerAudioControlView: BaseView {
             self.audioControlView.status = .pause
         }
     }
-    private lazy var totalSeconds: Int = 0
+    private var totalSeconds: Int = 0
 
     weak var datasource: PlayerAudioControlViewDataSource?
-    weak var delegate: PlayerAudioControlViewDelegate?
 
     override func initView() {
         super.initView()
@@ -58,9 +52,29 @@ class PlayerAudioControlView: BaseView {
     }
 
     func reloadData() {
+        setupAudio()
         setupAudioControl()
-        setupProgress()
         setImageAudio()
+    }
+
+    private func setupAudio() {
+        guard let nameAudio = datasource?.nameAudio(view: self) else {
+            return
+        }
+        bindingData()
+        viewModel.setupAudio(file: nameAudio)
+        viewModel.setupDisplayLink()
+    }
+
+    private func bindingData() {
+        viewModel.totalSecondsPlayer = { [weak self] time in
+            self?.totalSeconds = Int(time)
+            self?.setupProgress()
+        }
+
+        viewModel.currentTime = { [weak self] timeCurrent in
+            self?.currentSecond = Int(timeCurrent)
+        }
     }
 
     private func setupAudioControl() {
@@ -73,10 +87,6 @@ class PlayerAudioControlView: BaseView {
     }
 
     private func setupProgress() {
-        guard let totalTimes = datasource?.totalSecondsAudio(view: self) else {
-            return
-        }
-        self.totalSeconds = totalTimes
         progressView.totalSecondTimes = self.totalSeconds
         progressView.elapsedSecondTimes = 0
     }
@@ -84,6 +94,10 @@ class PlayerAudioControlView: BaseView {
     private func setImageAudio() {
         let image = datasource?.imageAudio()
         audioImageView.isHidden = image == nil
+    }
+
+    deinit {
+        print("Deinit: ", String(describing: Self.self))
     }
 
 }
@@ -99,8 +113,7 @@ extension PlayerAudioControlView: AudioControlViewDelegate {
         } else {
             currentSecond -= timeControl.rawValue
         }
-        delegate?.didTapBackward(view: self, seconds: -timeControl.rawValue)
-//        progressView.elapsedSecondTimes = currentSecond
+        viewModel.seek(time: -timeControl.rawValue)
     }
 
     func didTapForward(view: AudioControlView, status: AudioStatus) {
@@ -112,16 +125,15 @@ extension PlayerAudioControlView: AudioControlViewDelegate {
         } else {
             currentSecond += timeControl.rawValue
         }
-        delegate?.didTapForward(view: self, seconds: timeControl.rawValue)
-//        progressView.elapsedSecondTimes = currentSecond
+        viewModel.seek(time: timeControl.rawValue)
     }
 
     func didTapPlay(view: AudioControlView) {
-        delegate?.didTapPlay(view: self)
+        viewModel.playOrPause(isPlaying: false)
     }
 
     func didTapPause(view: AudioControlView) {
-        delegate?.didTapPause(view: self)
+        viewModel.playOrPause(isPlaying: true)
     }
 
 }

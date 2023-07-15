@@ -1,14 +1,14 @@
 //
-//  AudioViewModel.swift
+//  PlayerAudioControlViewModel.swift
 //  AudioDemo
 //
-//  Created by Duc Canh on 27/06/2023.
+//  Created by Duc Canh on 15/07/2023.
 //
 
 import Foundation
 import AVFoundation
 
-class AudioViewModel {
+class PlayerAudioControlViewModel {
 
     private var audioLengthSamples: AVAudioFramePosition = 0
 
@@ -38,8 +38,12 @@ class AudioViewModel {
         return playerTime.sampleTime
     }
 
-    func setupAudio() {
-        guard let fileUrl = Bundle.main.url(forResource: "intro_vocab", withExtension: "mp3") else {
+    func setupAudio(file name: String) {
+        var nameFile = name
+        if nameFile.contains(".mp3") {
+            nameFile = nameFile.replacingOccurrences(of: ".mp3", with: "")
+        }
+        guard let fileUrl = Bundle.main.url(forResource: nameFile, withExtension: "mp3") else {
             return
         }
 
@@ -129,8 +133,8 @@ class AudioViewModel {
         }
         needsFileSchedule = false
         seekFrame = 0
-        player.scheduleFile(file, at: nil) {
-            self.needsFileSchedule = true
+        player.scheduleFile(file, at: nil) { [weak self] in
+            self?.needsFileSchedule = true
         }
     }
 
@@ -144,5 +148,9 @@ class AudioViewModel {
             }
             player.play()
         }
+    }
+
+    deinit {
+        print("Deinit: ", String(describing: Self.self))
     }
 }
