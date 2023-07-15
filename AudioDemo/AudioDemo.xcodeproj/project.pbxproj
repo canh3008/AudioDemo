@@ -10,13 +10,13 @@
 		539B6FD32A4150D400AB318D /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B6FD22A4150D400AB318D /* Time.swift */; };
 		53CCB9E62A4001BC006B8177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCB9E52A4001BC006B8177 /* AppDelegate.swift */; };
 		53CCB9E82A4001BC006B8177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCB9E72A4001BC006B8177 /* SceneDelegate.swift */; };
-		53CCB9EA2A4001BC006B8177 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCB9E92A4001BC006B8177 /* ViewController.swift */; };
+		53CCB9EA2A4001BC006B8177 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCB9E92A4001BC006B8177 /* AudioViewController.swift */; };
 		53CCB9EF2A4001BE006B8177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53CCB9EE2A4001BE006B8177 /* Assets.xcassets */; };
 		53CCB9F22A4001BE006B8177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53CCB9F02A4001BE006B8177 /* LaunchScreen.storyboard */; };
 		53CCB9FD2A4001BE006B8177 /* AudioDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCB9FC2A4001BE006B8177 /* AudioDemoTests.swift */; };
 		53CCBA072A4001BE006B8177 /* AudioDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCBA062A4001BE006B8177 /* AudioDemoUITests.swift */; };
 		53CCBA092A4001BE006B8177 /* AudioDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCBA082A4001BE006B8177 /* AudioDemoUITestsLaunchTests.swift */; };
-		53CCBA162A400451006B8177 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CCBA152A400451006B8177 /* ViewController.xib */; };
+		53CCBA162A400451006B8177 /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CCBA152A400451006B8177 /* AudioViewController.xib */; };
 		53CCBA1A2A400574006B8177 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCBA192A400574006B8177 /* ProgressView.swift */; };
 		53CCBA1D2A400602006B8177 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCBA1C2A400602006B8177 /* BaseView.swift */; };
 		53CCBA1F2A4009C8006B8177 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CCBA1E2A4009C8006B8177 /* ProgressView.xib */; };
@@ -26,6 +26,8 @@
 		53CCBA292A403DDC006B8177 /* AudioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CCBA282A403DDC006B8177 /* AudioControlView.xib */; };
 		53CCBA2C2A40A617006B8177 /* PlayerAudioControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CCBA2B2A40A617006B8177 /* PlayerAudioControlView.swift */; };
 		53CCBA2E2A40A62E006B8177 /* PlayerAudioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53CCBA2D2A40A62E006B8177 /* PlayerAudioControlView.xib */; };
+		53F00B5E2A4A8EA50006AE1F /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F00B5D2A4A8EA50006AE1F /* AudioViewModel.swift */; };
+		53F00B602A4A9CCA0006AE1F /* intro_vocab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53F00B5F2A4A9CC90006AE1F /* intro_vocab.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,7 @@
 		53CCB9E22A4001BC006B8177 /* AudioDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CCB9E52A4001BC006B8177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53CCB9E72A4001BC006B8177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53CCB9E92A4001BC006B8177 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53CCB9E92A4001BC006B8177 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		53CCB9EE2A4001BE006B8177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53CCB9F12A4001BE006B8177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53CCB9F32A4001BE006B8177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 		53CCBA022A4001BE006B8177 /* AudioDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53CCBA062A4001BE006B8177 /* AudioDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDemoUITests.swift; sourceTree = "<group>"; };
 		53CCBA082A4001BE006B8177 /* AudioDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		53CCBA152A400451006B8177 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		53CCBA152A400451006B8177 /* AudioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = "<group>"; };
 		53CCBA192A400574006B8177 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		53CCBA1C2A400602006B8177 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		53CCBA1E2A4009C8006B8177 /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
@@ -69,6 +71,8 @@
 		53CCBA282A403DDC006B8177 /* AudioControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioControlView.xib; sourceTree = "<group>"; };
 		53CCBA2B2A40A617006B8177 /* PlayerAudioControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAudioControlView.swift; sourceTree = "<group>"; };
 		53CCBA2D2A40A62E006B8177 /* PlayerAudioControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerAudioControlView.xib; sourceTree = "<group>"; };
+		53F00B5D2A4A8EA50006AE1F /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
+		53F00B5F2A4A9CC90006AE1F /* intro_vocab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = intro_vocab.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +136,13 @@
 				53CCBA172A4004B4006B8177 /* Components */,
 				53CCB9E52A4001BC006B8177 /* AppDelegate.swift */,
 				53CCB9E72A4001BC006B8177 /* SceneDelegate.swift */,
-				53CCB9E92A4001BC006B8177 /* ViewController.swift */,
+				53CCBA152A400451006B8177 /* AudioViewController.xib */,
+				53CCB9E92A4001BC006B8177 /* AudioViewController.swift */,
+				53F00B5D2A4A8EA50006AE1F /* AudioViewModel.swift */,
+				53F00B5F2A4A9CC90006AE1F /* intro_vocab.mp3 */,
 				53CCB9EE2A4001BE006B8177 /* Assets.xcassets */,
 				53CCB9F02A4001BE006B8177 /* LaunchScreen.storyboard */,
 				53CCB9F32A4001BE006B8177 /* Info.plist */,
-				53CCBA152A400451006B8177 /* ViewController.xib */,
 			);
 			path = AudioDemo;
 			sourceTree = "<group>";
@@ -320,8 +326,9 @@
 				53CCB9F22A4001BE006B8177 /* LaunchScreen.storyboard in Resources */,
 				53CCBA2E2A40A62E006B8177 /* PlayerAudioControlView.xib in Resources */,
 				53CCBA292A403DDC006B8177 /* AudioControlView.xib in Resources */,
+				53F00B602A4A9CCA0006AE1F /* intro_vocab.mp3 in Resources */,
 				53CCBA1F2A4009C8006B8177 /* ProgressView.xib in Resources */,
-				53CCBA162A400451006B8177 /* ViewController.xib in Resources */,
+				53CCBA162A400451006B8177 /* AudioViewController.xib in Resources */,
 				53CCB9EF2A4001BE006B8177 /* Assets.xcassets in Resources */,
 				53CCBA242A40329E006B8177 /* MusicProgressView.xib in Resources */,
 			);
@@ -348,13 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53CCB9EA2A4001BC006B8177 /* ViewController.swift in Sources */,
+				53CCB9EA2A4001BC006B8177 /* AudioViewController.swift in Sources */,
 				53CCBA1A2A400574006B8177 /* ProgressView.swift in Sources */,
 				53CCBA2C2A40A617006B8177 /* PlayerAudioControlView.swift in Sources */,
 				53CCBA272A403DD4006B8177 /* AudioControlView.swift in Sources */,
 				53CCBA1D2A400602006B8177 /* BaseView.swift in Sources */,
 				53CCB9E62A4001BC006B8177 /* AppDelegate.swift in Sources */,
 				539B6FD32A4150D400AB318D /* Time.swift in Sources */,
+				53F00B5E2A4A8EA50006AE1F /* AudioViewModel.swift in Sources */,
 				53CCB9E82A4001BC006B8177 /* SceneDelegate.swift in Sources */,
 				53CCBA222A403295006B8177 /* MusicProgressView.swift in Sources */,
 			);

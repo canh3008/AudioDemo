@@ -18,6 +18,13 @@ extension PlayerAudioControlViewDataSource {
     }
 }
 
+protocol PlayerAudioControlViewDelegate: AnyObject {
+    func didTapPlay(view: PlayerAudioControlView)
+    func didTapPause(view: PlayerAudioControlView)
+    func didTapForward(view: PlayerAudioControlView, seconds: Int)
+    func didTapBackward(view: PlayerAudioControlView, seconds: Int)
+}
+
 class PlayerAudioControlView: BaseView {
 
     @IBOutlet private weak var audioControlView: AudioControlView!
@@ -25,10 +32,23 @@ class PlayerAudioControlView: BaseView {
     @IBOutlet private weak var audioImageView: UIImageView!
 
     private var timeControl: TimeControl?
-    private var currentSecond: Int = 0
+    var currentSecond: Int = 0 {
+        didSet {
+
+            self.progressView.elapsedSecondTimes = currentSecond
+
+            guard totalSeconds > 0,
+                    currentSecond > 0,
+                  currentSecond == totalSeconds else {
+                return
+            }
+            self.audioControlView.status = .pause
+        }
+    }
     private lazy var totalSeconds: Int = 0
 
     weak var datasource: PlayerAudioControlViewDataSource?
+    weak var delegate: PlayerAudioControlViewDelegate?
 
     override func initView() {
         super.initView()
@@ -79,8 +99,8 @@ extension PlayerAudioControlView: AudioControlViewDelegate {
         } else {
             currentSecond -= timeControl.rawValue
         }
-
-        progressView.elapsedSecondTimes = currentSecond
+        delegate?.didTapBackward(view: self, seconds: -timeControl.rawValue)
+//        progressView.elapsedSecondTimes = currentSecond
     }
 
     func didTapForward(view: AudioControlView, status: AudioStatus) {
@@ -92,15 +112,16 @@ extension PlayerAudioControlView: AudioControlViewDelegate {
         } else {
             currentSecond += timeControl.rawValue
         }
-        progressView.elapsedSecondTimes = currentSecond
+        delegate?.didTapForward(view: self, seconds: timeControl.rawValue)
+//        progressView.elapsedSecondTimes = currentSecond
     }
 
     func didTapPlay(view: AudioControlView) {
-
+        delegate?.didTapPlay(view: self)
     }
 
     func didTapPause(view: AudioControlView) {
-
+        delegate?.didTapPause(view: self)
     }
 
 }

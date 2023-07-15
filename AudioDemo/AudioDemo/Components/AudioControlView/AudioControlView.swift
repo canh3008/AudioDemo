@@ -40,7 +40,11 @@ class AudioControlView: BaseView {
     @IBOutlet weak var forwardTimeLabel: UILabel!
     @IBOutlet weak var backwardTimeLabel: UILabel!
 
-    private lazy var status: AudioStatus = .pause
+    lazy var status: AudioStatus = .pause {
+        didSet {
+            setIconPauseOrPlay()
+        }
+    }
     private var timeControl: TimeControl = .five
 
     weak var delegate: AudioControlViewDelegate?
