@@ -97,6 +97,7 @@ class PlayerAudioControlView: BaseView {
     }
 
     deinit {
+        viewModel.disConnect()
         print("Deinit: ", String(describing: Self.self))
     }
 

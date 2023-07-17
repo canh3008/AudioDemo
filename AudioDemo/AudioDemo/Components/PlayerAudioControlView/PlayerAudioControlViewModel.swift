@@ -150,6 +150,13 @@ class PlayerAudioControlViewModel {
         }
     }
 
+    func disConnect() {
+        displayLink?.invalidate()
+        engine.disconnectNodeOutput(player)
+        engine.disconnectNodeOutput(timeEffect)
+    }
+
+
     deinit {
         print("Deinit: ", String(describing: Self.self))
     }
