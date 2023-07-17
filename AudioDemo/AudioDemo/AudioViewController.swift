@@ -39,6 +39,11 @@ class AudioViewController: UIViewController {
         playerAudioControlView.reloadData()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.disConnect()
+    }
+
 }
 
 extension AudioViewController: PlayerAudioControlViewDataSource {

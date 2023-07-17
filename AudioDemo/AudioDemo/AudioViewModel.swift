@@ -123,6 +123,13 @@ class AudioViewModel {
         }
     }
 
+    func disConnect() {
+
+        displayLink?.invalidate()
+        engine.disconnectNodeOutput(player)
+        engine.disconnectNodeOutput(timeEffect)
+    }
+
     func scheduleAudioFile() {
         guard let file = audioFile, needsFileSchedule else {
             return
@@ -144,5 +151,9 @@ class AudioViewModel {
             }
             player.play()
         }
+    }
+
+    deinit {
+        print("Deinit: ", String(describing: Self.self))
     }
 }
