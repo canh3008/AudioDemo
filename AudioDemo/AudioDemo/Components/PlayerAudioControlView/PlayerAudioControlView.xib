@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,6 +11,7 @@
             <connections>
                 <outlet property="audioControlView" destination="1Tm-wk-fLF" id="BnQ-c3-ZZO"/>
                 <outlet property="audioImageView" destination="Zhh-UQ-219" id="aJo-zF-qJ3"/>
+                <outlet property="lyricsListView" destination="Nal-Fx-OhK" id="OV2-3E-eyE"/>
                 <outlet property="progressView" destination="tKK-ON-nOg" id="8eZ-md-Uz4"/>
             </connections>
         </placeholder>
@@ -19,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IWq-MV-ykU">
-                    <rect key="frame" x="0.0" y="0.0" width="386" height="594"/>
+                    <rect key="frame" x="0.0" y="0.0" width="386" height="647"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zhh-UQ-219">
                             <rect key="frame" x="0.0" y="0.0" width="386" height="386"/>
@@ -27,15 +29,19 @@
                                 <constraint firstAttribute="width" secondItem="Zhh-UQ-219" secondAttribute="height" id="YUL-vP-owa"/>
                             </constraints>
                         </imageView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nal-Fx-OhK" userLabel="LyricsView" customClass="LyricsListView" customModule="AudioDemo" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="391" width="386" height="0.0"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="THw-KG-Pbg">
-                            <rect key="frame" x="0.0" y="396" width="386" height="198"/>
+                            <rect key="frame" x="0.0" y="396" width="386" height="251"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="403" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="tKK-ON-nOg" customClass="MusicProgressView" customModule="AudioDemo" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="386" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="386" height="181"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoV-Uk-pqn">
-                                    <rect key="frame" x="0.0" y="158" width="386" height="40"/>
+                                    <rect key="frame" x="0.0" y="211" width="386" height="40"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tm-wk-fLF" customClass="AudioControlView" customModule="AudioDemo" customModuleProvider="target">
                                             <rect key="frame" x="38.5" y="0.0" width="309" height="40"/>
@@ -61,10 +67,15 @@
                 <constraint firstItem="IWq-MV-ykU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4OU-Ob-Ydj"/>
                 <constraint firstItem="IWq-MV-ykU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fXS-Nn-pYd"/>
                 <constraint firstAttribute="trailing" secondItem="IWq-MV-ykU" secondAttribute="trailing" id="kp9-n4-0fh"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IWq-MV-ykU" secondAttribute="bottom" id="sV0-Z6-jEP"/>
+                <constraint firstAttribute="bottom" secondItem="IWq-MV-ykU" secondAttribute="bottom" id="sV0-Z6-jEP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="117.39130434782609" y="-30.46875"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="4" translatesAutoresizingMaskIntoConstraints="NO" id="g5E-rI-3Yi" customClass="PlayerAudioControlView" customModule="AudioDemo" customModuleProvider="target">
-                    <rect key="frame" x="20" y="44" width="374" height="4"/>
+                    <rect key="frame" x="20" y="44" width="374" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
@@ -36,6 +36,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="g5E-rI-3Yi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="8mt-K9-w0e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="g5E-rI-3Yi" secondAttribute="bottom" id="Iq0-YJ-ISm"/>
                 <constraint firstItem="g5E-rI-3Yi" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="d2O-Xf-fKO"/>
                 <constraint firstItem="g5E-rI-3Yi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lPC-cv-vze"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="g5E-rI-3Yi" secondAttribute="trailing" constant="20" id="wN7-1k-CeP"/>

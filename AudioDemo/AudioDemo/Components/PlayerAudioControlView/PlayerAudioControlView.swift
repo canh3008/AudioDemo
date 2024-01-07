@@ -23,6 +23,7 @@ class PlayerAudioControlView: BaseView {
     @IBOutlet private weak var audioControlView: AudioControlView!
     @IBOutlet private weak var progressView: MusicProgressView!
     @IBOutlet private weak var audioImageView: UIImageView!
+    @IBOutlet private weak var lyricsListView: LyricsListView!
 
     private var viewModel = PlayerAudioControlViewModel()
 
@@ -49,6 +50,8 @@ class PlayerAudioControlView: BaseView {
         setupAudioControl()
         setupProgress()
         setImageAudio()
+
+        lyricsListView.isHidden = false
     }
 
     func reloadData() {
@@ -73,6 +76,7 @@ class PlayerAudioControlView: BaseView {
         }
 
         viewModel.currentTime = { [weak self] timeCurrent in
+            self?.lyricsListView.currentSecondsAudio = Int(timeCurrent)
             self?.currentSecond = Int(timeCurrent)
         }
     }

@@ -20,7 +20,7 @@ class AudioViewController: UIViewController {
 
 extension AudioViewController: PlayerAudioControlViewDataSource {
     func nameAudio(view: PlayerAudioControlView) -> String {
-        return "intro_vocab"
+        return "Beautiful_in_white"
     }
 
     func timeControl(view: PlayerAudioControlView) -> TimeControl {
